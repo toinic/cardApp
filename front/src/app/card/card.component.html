@@ -1,0 +1,35 @@
+<div class="content">
+
+  <img *ngIf="cards.length==0" src="assets/loading.gif">
+
+  <div class="row" *ngIf="cards.length>0">
+    <div class="col-md-6">
+      <img src="{{cards[cardIndex].image}}">
+    </div>
+    <div class="col-md-6 d-flex flex-column">
+      <h3 class="mb-4" style="color:#d9534f">{{cards[cardIndex].title}}</h3>
+      <div class="d-flex justify-content-between mb-auto">
+        <div>
+          <span class="text-muted">Edition </span>
+          <strong>{{cards[cardIndex].edition}}</strong>
+        </div>
+        <div>
+          <span class="text-muted">Rareté </span>
+          <strong>{{cards[cardIndex].rarity}}</strong>
+        </div>
+        <div>
+          <span class="text-muted">Artiste </span>
+          <strong>{{cards[cardIndex].artist}}</strong>
+        </div>
+      </div>
+      <div class="body text-left">{{cards[cardIndex].body}}</div>
+      <!-- <div [innerHTML]="cards[cardIndex].body"></div> -->
+      <div class="d-flex justify-content-between align-items-center mt-auto">
+        <button class="btn btn-dark btn-sm" [disabled]="cardIndex==0" (click)="page('previous')">Carte précédente</button>
+        <button class="btn btn-dark btn-sm" [disabled]="cards.length-1==cardIndex" (click)="page('next')">Carte suivante</button>
+      </div>
+    <div>
+  </div>
+
+
+</div>
